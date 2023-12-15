@@ -27,7 +27,7 @@ class TestCase extends Orchestra
 
     public function getEnvironmentSetUp($app): void
     {
-        $migration = include __DIR__ . '/../database/create_jenga_ipns_table.php.stub';
+        $migration = include __DIR__ . '/../database/migrations/create_jenga_ipns_table.php.stub';
         $migration->up();
     }
 }
