@@ -52,7 +52,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "DrH\\jenga\\JengaServiceProvider"
+                "DrH\\Jenga\\JengaServiceProvider"
             ]
         }
     },
