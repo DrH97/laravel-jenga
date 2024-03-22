@@ -5,11 +5,7 @@ namespace DrH\Jenga\Tests\Feature;
 use DrH\Jenga\Library\BaseClient;
 use DrH\Jenga\Library\Core;
 use DrH\Jenga\Tests\TestCase;
-use GuzzleHttp\Client;
-use GuzzleHttp\Handler\MockHandler;
-use GuzzleHttp\HandlerStack;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Config;
 
 abstract class MockServerTestCase extends TestCase
 {

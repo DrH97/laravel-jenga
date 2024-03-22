@@ -55,4 +55,29 @@ class Controller extends \Illuminate\Routing\Controller
             'statusMessage' => 'IPN received'
         ]);
     }
+
+    public function handleBillIpn(Request $request): JsonResponse
+    {
+        jengaLogInfo('Bill IPN: ', $request->all());
+
+//        try {
+//            $data = $this->flatten($request->all());
+//            unset($data['callback_type']); // TODO: should we check and ensure type is IPN?
+//
+//            if (JengaIpn::whereTransactionReference($data['transaction_reference'])->exists()) {
+//                throw new Exception('ipn already received');
+//            }
+//
+//            $ipn = JengaIpn::create($data);
+//
+//            event(new JengaIpnEvent($ipn));
+//        } catch (Exception $e) {
+//            jengaLogError('Error handling ipn: ' . $e->getMessage(), $e->getTrace());
+//        }
+
+        return response()->json([
+            'responseCode' => 'OK',
+            'responseMessage' => 'SUCCESSFUL',
+        ]);
+    }
 }
