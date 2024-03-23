@@ -29,5 +29,8 @@ class TestCase extends Orchestra
     {
         $migration = include __DIR__ . '/../database/migrations/create_jenga_ipns_table.php.stub';
         $migration->up();
+
+        $migration = include __DIR__ . '/../database/migrations/create_jenga_bill_ipns_table.php.stub';
+        $migration->up();
     }
 }

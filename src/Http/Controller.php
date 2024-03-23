@@ -2,7 +2,9 @@
 
 namespace DrH\Jenga\Http;
 
+use DrH\Jenga\Events\JengaBillIpnEvent;
 use DrH\Jenga\Events\JengaIpnEvent;
+use DrH\Jenga\Models\JengaBillIpn;
 use DrH\Jenga\Models\JengaIpn;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -60,20 +62,20 @@ class Controller extends \Illuminate\Routing\Controller
     {
         jengaLogInfo('Bill IPN: ', $request->all());
 
-//        try {
-//            $data = $this->flatten($request->all());
-//            unset($data['callback_type']); // TODO: should we check and ensure type is IPN?
-//
-//            if (JengaIpn::whereTransactionReference($data['transaction_reference'])->exists()) {
-//                throw new Exception('ipn already received');
-//            }
-//
-//            $ipn = JengaIpn::create($data);
-//
-//            event(new JengaIpnEvent($ipn));
-//        } catch (Exception $e) {
-//            jengaLogError('Error handling ipn: ' . $e->getMessage(), $e->getTrace());
-//        }
+        try {
+            $data = $this->flatten($request->all());
+            unset($data['username'], $data['password']); // TODO: should we check and ensure type is IPN?
+
+            if (JengaBillIpn::whereBillNumber($data['bill_number'])->exists()) {
+                throw new Exception('bill ipn already received');
+            }
+
+            $ipn = JengaBillIpn::create($data);
+
+            event(new JengaBillIpnEvent($ipn));
+        } catch (Exception $e) {
+            jengaLogError('Error handling bill ipn: ' . $e->getMessage(), $e->getTrace());
+        }
 
         return response()->json([
             'responseCode' => 'OK',

@@ -63,6 +63,27 @@ abstract class MockServerTestCase extends TestCase
                 'statusCode' => '0',
                 'statusMessage' => 'IPN received'
             ]
+        ],
+
+        'bill_ipn' => [
+            'request' => [
+                "username" => "Equity",
+                "password" => "3pn!Ty@zoi9",
+                "billNumber" => "123456",
+                "billAmount" => "100",
+                "CustomerRefNumber" => "123456",
+                "bankreference" => "20170101100003485481",
+                "tranParticular" => "BillPayment",
+                "paymentMode" => "cash",
+                "transactionDate" => "01-01-2017 00:00:00",
+                "phonenumber" => "254765555136",
+                "debitaccount" => "0170100094903",
+                "debitcustname" => "HERMAN GITAU NYOTU"
+            ],
+            'response' => [
+                'responseCode' => 'OK',
+                'responseMessage' => 'SUCCESSFUL',
+            ]
         ]
     ];
 }
