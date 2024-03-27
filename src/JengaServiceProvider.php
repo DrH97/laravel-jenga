@@ -13,7 +13,7 @@ class JengaServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel-jenga')
             ->hasConfigFile()
-            ->hasMigrations(['create_jenga_ipns_table',])
+            ->hasMigrations(['create_jenga_ipns_table', 'create_jenga_bill_ipns_table'])
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->publishConfigFile()
