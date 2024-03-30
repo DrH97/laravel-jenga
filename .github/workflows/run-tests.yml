@@ -5,6 +5,7 @@ on: [ push, pull_request ]
 jobs:
   test:
     strategy:
+      runs-on: ubuntu-latest
       fail-fast: true
       matrix:
         php: [ 8.2, 8.3 ]
