@@ -62,6 +62,13 @@ class Controller extends \Illuminate\Routing\Controller
     {
         jengaLogInfo('Bill IPN: ', $request->all());
 
+        if (empty($request->all()) || $request->username != config('jenga.bill.username') || $request->password != config('jenga.bill.password')) {
+            return response()->json([
+                'responseCode' => 'OK',
+                'responseMessage' => 'INVALID DATA',
+            ], 422);
+        }
+
         try {
             $data = $this->flatten($request->all());
             unset($data['username'], $data['password']); // TODO: should we check and ensure type is IPN?
