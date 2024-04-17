@@ -80,6 +80,21 @@ abstract class MockServerTestCase extends TestCase
                 "debitaccount" => "0170100094903",
                 "debitcustname" => "HERMAN GITAU NYOTU"
             ],
+//            'request' => [
+//                "username" => "Equity",
+//                "password" => '3pn!Ty@zoi9',
+//                "billNumber" => "93343",
+//                "CustomerRefNumber" => "93343",
+//                "billAmount" => "30",
+//                "bankreference" => "202404122024242457",
+//                "tranParticular" => "",
+//                "paymentMode" => "CASH",
+//                "debitaccount" => "0010101204364",
+//                "transactionDate" => "2024-04-12T10:54:17",
+//                "debitcustname" => "",
+//                "phonenumber" => "",
+//                "currency" => ""
+//            ],
             'response' => [
                 'responseCode' => 'OK',
                 'responseMessage' => 'SUCCESSFUL',
