@@ -73,8 +73,8 @@ class Controller extends \Illuminate\Routing\Controller
             $data = $this->flatten($request->all());
             unset($data['username'], $data['password']); // TODO: should we check and ensure type is IPN?
 
-            if (JengaBillIpn::whereBillNumber($data['bill_number'])->exists()) {
-                throw new Exception('bill ipn already received');
+            if (JengaBillIpn::whereBankreference($data['bankreference'])->exists()) {
+                throw new Exception('bill ipn already received - ' . $data['bankreference']);
             }
 
             $ipn = JengaBillIpn::create($data);

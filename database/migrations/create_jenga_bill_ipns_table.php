@@ -13,7 +13,7 @@ return new class extends Migration {
             $table->string('bill_number')->index();
             $table->decimal('bill_amount');
             $table->string('customer_ref_number');
-            $table->string('bankreference');
+            $table->string('bankreference')->index();
             $table->string('tran_particular')->nullable();
             $table->string('payment_mode');
             $table->string('transaction_date');
